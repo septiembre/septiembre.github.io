@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovacion</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #FAFAD2;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        section {
+            margin: 20px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            gap: 20px;
+        }
+        .encuesta {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px;
+        }
+        .respuestas {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            width: 35%;
+        }
+        .boton {
+            background-color: #FAFAD2;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .boton:hover {
+            background-color: #eee;
+        }
+        .opcion {
+            margin: 10px 0;
+        }
+        .hechos-en-casa {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .hechos-en-casa img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Innovación</h1>
+    <div class="container">
+        <!-- Encuestas -->
+        <section class="encuesta">
+            <h2>Encuesta de Satisfacción</h2>
+            <p>¿Qué opinas sobre la innovación en nuestra empresa?</p>
+            <form id="formEncuesta1">
+                <div class="opcion">
+                    <input type="radio" id="opcion1-1" name="respuesta1" value="Muy buena">
+                    <label for="opcion1-1">Muy buena</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion2-1" name="respuesta1" value="Buena">
+                    <label for="opcion2-1">Buena</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion3-1" name="respuesta1" value="Regular">
+                    <label for="opcion3-1">Regular</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion4-1" name="respuesta1" value="Mala">
+                    <label for="opcion4-1">Mala</label>
+                </div>
+                <button type="button" class="boton" onclick="enviarEncuesta('respuesta1', 'mensaje1')">Enviar</button>
+            </form>
+            <p id="mensaje1" style="display:none; margin-top: 20px;">¡Gracias por tu respuesta!</p>
+        </section>
+
+        <section class="encuesta">
+            <h2>Encuesta de Satisfacción</h2>
+            <p>¿Cómo calificarías nuestro proyecto?</p>
+            <form id="formEncuesta2">
+                <div class="opcion">
+                    <input type="radio" id="opcion1-2" name="respuesta2" value="Muy buena">
+                    <label for="opcion1-2">Muy bien y entretenido</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion2-2" name="respuesta2" value="Buena">
+                    <label for="opcion2-2">Bien, pero aún le falta</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion3-2" name="respuesta2" value="Regular">
+                    <label for="opcion3-2">Los productos se ven bien</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion4-2" name="respuesta2" value="Mala">
+                    <label for="opcion4-2">Completamente mal</label>
+                </div>
+                <button type="button" class="boton" onclick="enviarEncuesta('respuesta2', 'mensaje2')">Enviar</button>
+            </form>
+            <p id="mensaje2" style="display:none; margin-top: 20px;">¡Gracias por tu respuesta!</p>
+        </section>
+
+        <section class="encuesta">
+            <h2>Encuesta de Satisfacción</h2>
+            <p>¿Cuál es tu opinión sobre nuestros collares?</p>
+            <form id="formEncuesta3">
+                <div class="opcion">
+                    <input type="radio" id="opcion1-3" name="respuesta3" value="Muy buena">
+                    <label for="opcion1-3">Son muy lindos y originales</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion2-3" name="respuesta3" value="Buena">
+                    <label for="opcion2-3">Son originales, pero no representan lo artesanal</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion3-3" name="respuesta3" value="Regular">
+                    <label for="opcion3-3">Son lindos y lucen perfectamente</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" id="opcion4-3" name="respuesta3" value="Mala">
+                    <label for="opcion4-3">No están bien elaborados</label>
+                </div>
+                <button type="button" class="boton" onclick="enviarEncuesta('respuesta3', 'mensaje3')">Enviar</button>
+            </form>
+            <p id="mensaje3" style="display:none; margin-top: 20px;">¡Gracias por tu respuesta!</p>
+        </section>
+
+        <!-- Sección de respuestas -->
+        <section class="respuestas">
+            <h2>Respuestas Recibidas</h2>
+            <div id="listaRespuestas">
+                <p>No hay respuestas aún.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Secciones adicionales -->
+    <section>
+        <h2>Innovación</h2>
+        <p>Las técnicas tradicionales de fabricación de joyas se han practicado durante años.
+            Usamos todos estos conocimientos para así traer al público unos collares que puedan
+            resaltar en la nueva moda, pero sin perder su toque artesanal, además de que estas
+            prácticas son generosas con el medio ambiente.
+        </p>
+    </section>
+
+    <section>
+        <h2>Cuidado Ambiental</h2>
+        <p>Nuestras prácticas se aseguran de que cada collar que producimos genere conciencia
+            sobre lo importante que es cuidar a nuestro planeta. Por eso mismo, nuestras artesanías
+            son biodegradables, duraderas. Sí, pero que se deshagan más rápido. Esto es para que sus 
+            desechos no afecten a la naturaleza.
+        </p>
+    </section>
+
+    <section>
+        <h2>¡Somos hechos en casa!</h2>
+        <img src="collares.jpg" alt="Lo hermoso se encuentra en lo artesanal" style="max-width: 300px; width: 100%; height: auto; border-radius: 5px;">
+    </section>
+
+    <script>
+        function enviarEncuesta(respuestaName, mensajeId) {
+            const opciones = document.getElementsByName(respuestaName);
+            let seleccion = '';
+
+            for (const opcion of opciones) {
+                if (opcion.checked) {
+                    seleccion = opcion.value;
+                    break;
+                }
+            }
+
+            const listaRespuestas = document.getElementById('listaRespuestas');
+            if (seleccion) {
+                // Agregar respuesta a la lista
+                const nuevaRespuesta = document.createElement('p');
+                nuevaRespuesta.textContent = 'Respuesta: ' + seleccion;
+                listaRespuestas.appendChild(nuevaRespuesta);
+
+                // Eliminar el mensaje inicial
+                const mensajeInicial = listaRespuestas.querySelector('p');
+                if (mensajeInicial && mensajeInicial.textContent === 'No hay respuestas aún.') {
+                    mensajeInicial.remove();
+                }
+
+                // Mostrar el mensaje de agradecimiento
+                document.getElementById(mensajeId).style.display = 'block';
+                document.getElementById(mensajeId).innerText = '¡Gracias por tu respuesta: ' + seleccion + '!';
+            } else {
+                alert('Por favor, selecciona una opción antes de enviar.');
+            }
+        }
+    </script>
+</body>
+</html>
